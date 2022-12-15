@@ -1,19 +1,24 @@
 import React from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { NewScreen } from '../screens/NewScreen/NewScreen';
-import { TopScreen } from '../screens/TopScreen.jsx/TopScreen';
-import { PopularScreen } from '../screens/Popular/PopularScreen';
-import { HotScreen } from '../screens/HotScreen/HotScreen';
+import { TabLayout } from '../screens/TabLayout/TabLayout';
 
 const Tab = createMaterialTopTabNavigator();
 
 export const TabNavigation = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name='New' component={NewScreen} />
-      <Tab.Screen name='Top' component={TopScreen} />
-      <Tab.Screen name='Popular' component={PopularScreen} />
-      <Tab.Screen name='Hot' component={HotScreen} />
+      <Tab.Screen name='New'>
+        {(props) => <TabLayout {...props} categorie='new' />}
+      </Tab.Screen>
+      <Tab.Screen name='Top'>
+        {(props) => <TabLayout {...props} categorie='top' />}
+      </Tab.Screen>
+      <Tab.Screen name='Popular'>
+        {(props) => <TabLayout {...props} categorie='controversial' />}
+      </Tab.Screen>
+      <Tab.Screen name='hot'>
+        {(props) => <TabLayout {...props} categorie='hot' />}
+      </Tab.Screen>
     </Tab.Navigator>
   )
 }
