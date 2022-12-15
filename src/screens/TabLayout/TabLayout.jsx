@@ -8,33 +8,6 @@ export const TabLayout = ({ navigation, categorie }) => {
 
   const { onRefresh, list, refreshing } = useFetch(categorie)
 
-  // const [refreshing, setRefreshing] = useState(false);
-
-  // const [list, setList] = useState({});
-  // const [error, setError] = useState();
-
-  // const getList = async () => {
-  //   try {
-  //     const { data } = await axios.get('https://api.reddit.com/r/pics/new.json');
-
-  //     setList(data);
-  //     setRefreshing(false)
-  //   } catch (error) {
-  //     setError(error);
-  //     setRefreshing(false)
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getList();
-  // }, []);
-
-  // const onRefresh = useCallback(() => {
-  //   setRefreshing(true);
-
-  //   getList();
-  // }, []);
-
   return (
     <ScrollView refreshControl={<RefreshControl refreshing={refreshing}
       onRefresh={onRefresh} />} >
