@@ -3,15 +3,14 @@ import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 
 import moment from 'moment';
 
-export const PostItem = ({ data }) => {
+export const PostItem = ({ data, navigation }) => {
 
   const { data: item } = data
 
   const date = new Date(item.created_utc)
 
-  console.log(date)
   return (
-    <Pressable style={styles.container}>
+    <Pressable style={styles.container} onPress={() => navigation.navigate('Details', item)}>
       <Image source={{ uri: item.thumbnail }} style={styles.thumbnail} />
       <View style={styles.post}>
         <Text style={styles.date}>{moment(date).fromNow()}</Text>

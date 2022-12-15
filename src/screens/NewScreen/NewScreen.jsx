@@ -5,7 +5,7 @@ import { Image, RefreshControl, ScrollView, Text, View } from 'react-native'
 import axios from 'axios';
 import { PostItem } from '../../components/postItem/PostItem';
 
-export const NewScreen = () => {
+export const NewScreen = ({ navigation }) => {
 
   const [refreshing, setRefreshing] = useState(false);
 
@@ -38,7 +38,7 @@ export const NewScreen = () => {
     <ScrollView refreshControl={<RefreshControl refreshing={refreshing}
       onRefresh={onRefresh} />} >
       {
-        list.data ? list.data.children.map(post => <PostItem data={post} key={post.data.id} />) : <Text>No posts</Text>
+        list.data ? list.data.children.map(post => <PostItem data={post} navigation={navigation} key={post.data.id} />) : <Text>No posts</Text>
       }
     </ScrollView>
   )
